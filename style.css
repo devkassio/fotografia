@@ -70,8 +70,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #FFD700;
-    text-shadow: 0 0 15px #FFD700;
+    color: #43F47A;
+    text-shadow: 0 0 15px #43F47A;
 }
 
 nav ul li a::after {
@@ -81,7 +81,7 @@ nav ul li a::after {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background: #FFD700;
+    background: #43F47A;
     transition: width 0.3s ease;
 }
 
@@ -100,7 +100,7 @@ nav ul li a:hover::after {
 }
 
 .menu-toggle:hover {
-    color: #FFD700;
+    color: #43F47A;
 }
 
 /* Hero Section */
@@ -171,22 +171,22 @@ nav ul li a:hover::after {
 }
 
 .hero-btn {
-    background: linear-gradient(45deg, #FFD700, #DAA520);
-    color: #1A1A1A;
+    background: linear-gradient(45deg, #43F47A, #000);
+    color: #FFFFFF;
     padding: 15px 50px;
     border-radius: 50px;
     font-size: 1.2rem;
     text-decoration: none;
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 6px 15px rgba(67, 244, 122, 0.5);
     transition: all 0.4s ease;
     animation: pulseBtn 2s infinite;
 }
 
 .hero-btn:hover {
     background: linear-gradient(45deg, #FFFFFF, #E0E0E0);
-    color: #FFD700;
+    color: #43F47A;
     transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.7);
+    box-shadow: 0 8px 20px rgba(67, 244, 122, 0.7);
 }
 
 /* General Sections */
@@ -197,12 +197,12 @@ section {
 
 section h2 {
     font-size: 2.5rem;
-    color: #FFD700;
+    color: #43F47A;
     text-align: center;
     margin-bottom: 50px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+    text-shadow: 0 0 8px rgba(67, 244, 122, 0.3);
 }
 
 /* About Section */
@@ -245,40 +245,6 @@ section h2 {
     max-width: 600px;
 }
 
-.diferenciais {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.diferencial {
-    text-align: center;
-    max-width: 180px;
-    padding: 10px;
-    background: rgba(42, 42, 42, 0.8);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.diferencial:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-.diferencial i {
-    font-size: 2.5rem;
-    color: #FFD700;
-    margin-bottom: 15px;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
-}
-
-.diferencial h3 {
-    font-size: 1.3rem;
-    color: #FFFFFF;
-}
-
 /* Portfolio Section */
 #portfolio {
     background: linear-gradient(135deg, #222222, #2A2A2A);
@@ -306,9 +272,9 @@ section h2 {
 
 .filter-btn.active,
 .filter-btn:hover {
-    background: #FFD700;
-    color: #1A1A1A;
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+    background: #43F47A;
+    color: #000;
+    box-shadow: 0 0 8px rgba(67, 244, 122, 0.5);
 }
 
 .portfolio-grid {
@@ -368,7 +334,7 @@ section h2 {
 }
 
 .close-lightbox:hover {
-    color: #FFD700;
+    color: #43F47A;
 }
 
 /* Services Section */
@@ -392,7 +358,7 @@ section h2 {
     border-radius: 15px;
     text-align: center;
     transition: all 0.4s ease;
-    border: 1px solid rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(67, 244, 122, 0.1);
     min-height: 400px;
     display: flex;
     flex-direction: column;
@@ -403,14 +369,14 @@ section h2 {
 
 .servico-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 25px rgba(67, 244, 122, 0.4);
 }
 
 .servico-card h3 {
     font-size: 1.8rem;
-    color: #FFD700;
+    color: #43F47A;
     margin-bottom: 20px;
-    text-shadow: 0 0 4px rgba(255, 215, 0, 0.3);
+    text-shadow: 0 0 4px rgba(67, 244, 122, 0.3);
 }
 
 .servico-card p {
@@ -445,7 +411,7 @@ section h2 {
 
 .servico-card select:focus {
     background: #444444;
-    box-shadow: 0 0 8px #FFD700;
+    box-shadow: 0 0 8px #43F47A;
 }
 
 .servico-card .custom-price {
@@ -453,14 +419,16 @@ section h2 {
     margin-top: 10px;
     font-size: 1.1rem;
     margin-bottom: 15px;
+    color: #43F47A;
+    font-weight: 600;
 }
 
 .servico-card .servico-btn {
-    background: linear-gradient(45deg, #FFD700, #DAA520);
+    background: linear-gradient(45deg, #43F47A, #000);
     border: none;
     padding: 10px 25px;
     border-radius: 25px;
-    color: #1A1A1A;
+    color: #FFFFFF;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -468,9 +436,9 @@ section h2 {
 
 .servico-card .servico-btn:hover {
     background: linear-gradient(45deg, #FFFFFF, #E0E0E0);
-    color: #FFD700;
+    color: #43F47A;
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(67, 244, 122, 0.5);
 }
 
 /* Testimonials Section */
@@ -502,8 +470,8 @@ section h2 {
 
 .carousel-prev:hover,
 .carousel-next:hover {
-    background: #FFD700;
-    color: #1A1A1A;
+    background: #43F47A;
+    color: #000;
 }
 
 .carousel-prev {
@@ -534,7 +502,7 @@ section h2 {
 }
 
 .carousel-item cite {
-    color: #FFD700;
+    color: #43F47A;
     font-weight: 600;
     font-size: 1rem;
 }
@@ -552,8 +520,8 @@ section h2 {
 }
 
 .portal-btn {
-    background: linear-gradient(45deg, #FFD700, #DAA520);
-    color: #1A1A1A;
+    background: linear-gradient(45deg, #43F47A, #000);
+    color: #FFFFFF;
     padding: 12px 30px;
     border-radius: 25px;
     text-decoration: none;
@@ -563,33 +531,33 @@ section h2 {
 
 .portal-btn:hover {
     background: linear-gradient(45deg, #FFFFFF, #E0E0E0);
-    color: #FFD700;
+    color: #43F47A;
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(67, 244, 122, 0.5);
 }
 
 /* Contact Section */
 #contato {
-    background: linear-gradient(135deg, #FFD700, #1A1A1A);
+    background: linear-gradient(135deg, #43F47A, #1A1A1A);
     text-align: center;
     padding: 80px 0;
 }
 
 #contato .cta-btn {
-    background: linear-gradient(45deg, #FFD700, #DAA520);
-    color: #1A1A1A;
+    background: linear-gradient(45deg, #43F47A, #000);
+    color: #FFFFFF;
     padding: 15px 50px;
     font-size: 1.2rem;
     border-radius: 50px;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 25px rgba(67, 244, 122, 0.4);
     transition: all 0.4s ease;
 }
 
 #contato .cta-btn:hover {
     background: linear-gradient(45deg, #FFFFFF, #E0E0E0);
-    color: #FFD700;
+    color: #43F47A;
     transform: scale(1.1);
 }
 
@@ -598,7 +566,7 @@ footer {
     background: #1A1A1A;
     padding: 40px 0;
     text-align: center;
-    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    border-top: 1px solid rgba(67, 244, 122, 0.1);
     position: relative;
     z-index: 10;
 }
@@ -615,7 +583,7 @@ footer .social {
 }
 
 footer .social a {
-    color: #FFD700;
+    color: #43F47A;
     margin: 0 15px;
     font-size: 1.5rem;
     text-decoration: none;
@@ -624,7 +592,7 @@ footer .social a {
 
 footer .social a:hover {
     color: #FFFFFF;
-    text-shadow: 0 0 10px #FFD700;
+    text-shadow: 0 0 10px #43F47A;
 }
 
 /* WhatsApp Button */
@@ -639,8 +607,8 @@ footer .social a:hover {
 }
 
 .whatsapp-btn a {
-    background: #25D366;
-    color: #FFFFFF;
+    background: #43F47A;
+    color: #000;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -648,12 +616,13 @@ footer .social a:hover {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 3px 10px rgba(67, 244, 122, 0.4);
     transition: all 0.3s ease;
 }
 
 .whatsapp-btn a:hover {
-    background: #1DA851;
+    background: #000;
+    color: #43F47A;
     transform: scale(1.1);
 }
 
@@ -682,14 +651,14 @@ footer .social a:hover {
     border-radius: 15px;
     max-width: 500px;
     width: 90%;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 30px rgba(67, 244, 122, 0.6);
     text-align: center;
     position: relative;
 }
 
 .modal-content h3 {
     font-size: 1.8rem;
-    color: #FFD700;
+    color: #43F47A;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
@@ -711,15 +680,15 @@ footer .social a:hover {
 .modal-content input:focus,
 .modal-content textarea:focus {
     background: #444444;
-    box-shadow: 0 0 10px #FFD700;
+    box-shadow: 0 0 10px #43F47A;
 }
 
 .modal-content button {
-    background: linear-gradient(45deg, #FFD700, #DAA520);
+    background: linear-gradient(45deg, #43F47A, #000);
     border: none;
     padding: 10px 30px;
     border-radius: 25px;
-    color: #1A1A1A;
+    color: #FFFFFF;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -727,7 +696,7 @@ footer .social a:hover {
 
 .modal-content button:hover {
     background: linear-gradient(45deg, #FFFFFF, #E0E0E0);
-    color: #FFD700;
+    color: #43F47A;
     transform: scale(1.1);
 }
 
@@ -742,7 +711,7 @@ footer .social a:hover {
 }
 
 .close-modal:hover {
-    color: #FFD700;
+    color: #43F47A;
 }
 
 /* Notification */
@@ -750,8 +719,8 @@ footer .social a:hover {
     position: fixed;
     top: 15px;
     right: 15px;
-    background-color: #28a745;
-    color: white;
+    background-color: #43F47A;
+    color: #000;
     padding: 10px 20px;
     border-radius: 6px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
@@ -770,11 +739,11 @@ footer .social a:hover {
     right: 10px;
     cursor: pointer;
     font-size: 1.2rem;
-    color: white;
+    color: #000;
 }
 
 .close-notification:hover {
-    color: #ddd;
+    color: #FFFFFF;
 }
 
 /* Animations */
@@ -792,11 +761,11 @@ footer .social a:hover {
 
 @keyframes textGlow {
     from {
-        text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        text-shadow: 0 0 8px rgba(67, 244, 122, 0.5);
     }
 
     to {
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        text-shadow: 0 0 15px rgba(67, 244, 122, 0.8);
     }
 }
 
@@ -937,14 +906,6 @@ footer .social a:hover {
 
     .sobre-content p {
         font-size: 1rem;
-    }
-
-    .diferencial {
-        max-width: 160px;
-    }
-
-    .diferencial h3 {
-        font-size: 1.1rem;
     }
 
     .carousel {

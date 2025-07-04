@@ -253,7 +253,7 @@ sessionSelects.forEach((select, index) => {
         let totalPrice = basePrice * (hours / 2);
         const packageName = select.options[select.selectedIndex].text;
         customPrices[index].textContent = `${packageName} - $${totalPrice.toFixed(2)}`;
-        customPrices[index].style.color = '#FFD700';
+        customPrices[index].style.color = '#43F47A';
         customPrices[index].style.fontWeight = '600';
     });
     select.dispatchEvent(new Event('change'));
@@ -336,7 +336,7 @@ closeModal.addEventListener('click', () => {
 inputs.forEach(input => {
     input.addEventListener('input', () => {
         if (input.value && input.id !== 'servico' && input.id !== 'package') {
-            input.style.border = '2px solid #FFD700';
+            input.style.border = '2px solid #43F47A';
         } else {
             input.style.border = 'none';
         }
