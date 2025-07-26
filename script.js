@@ -1,3 +1,14 @@
+// Smooth Scroll para Links
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 // Mobile Menu Toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navUl = document.querySelector('nav ul');
@@ -15,7 +26,7 @@ menuToggle.addEventListener('click', () => {
 tsParticles.load("particles-js", {
     particles: {
         number: {
-            value: 80,
+            value: 30,
             density: {
                 enable: true,
                 value_area: 800
@@ -101,22 +112,19 @@ const portfolioImages = {
         { src: "assets/portrait14.jpg", alt: "Retrato 14" },
         { src: "assets/portrait15.jpg", alt: "Retrato 15" }
     ],
-    weddings: [
-        { src: "assets/wedding1.jpg", alt: "Casamento 1" },
-        { src: "assets/wedding2.jpg", alt: "Casamento 2" },
-        { src: "assets/wedding3.jpg", alt: "Casamento 3" },
-        { src: "assets/wedding4.jpg", alt: "Casamento 4" },
-        { src: "assets/wedding5.jpg", alt: "Casamento 5" },
-        { src: "assets/wedding6.jpg", alt: "Casamento 6" },
-        { src: "assets/wedding7.jpg", alt: "Casamento 7" },
-        { src: "assets/wedding8.jpg", alt: "Casamento 8" },
-        { src: "assets/wedding9.jpg", alt: "Casamento 9" },
-        { src: "assets/wedding10.jpg", alt: "Casamento 10" },
-        { src: "assets/wedding11.jpg", alt: "Casamento 11" },
-        { src: "assets/wedding12.jpg", alt: "Casamento 12" },
-        { src: "assets/wedding13.jpg", alt: "Casamento 13" },
-        { src: "assets/wedding14.jpg", alt: "Casamento 14" },
-        { src: "assets/wedding15.jpg", alt: "Casamento 15" }
+    pets: [
+        { src: "assets/pet1.jpg", alt: "pet 1" },
+        { src: "assets/pet2.jpg", alt: "pet 2" },
+        { src: "assets/pet12.jpg", alt: "pet 3" },
+        { src: "assets/pet16.jpg", alt: "pet 4" },
+        { src: "assets/pet6.jpg", alt: "pet 6" },
+        { src: "assets/pet9.jpg", alt: "pet 9" },
+        { src: "assets/pet10.jpg", alt: "pet 10" },
+        { src: "assets/pet11.jpg", alt: "pet 11" },
+        { src: "assets/pet13.jpg", alt: "pet 12" },
+        { src: "assets/pet3.jpg", alt: "pet 13" },
+        { src: "assets/pet14.jpg", alt: "pet 14" },
+        { src: "assets/pet15.jpg", alt: "pet 15" },
     ],
     events: [
         { src: "assets/event1.jpg", alt: "Evento 1" },
@@ -129,9 +137,6 @@ const portfolioImages = {
         { src: "assets/event8.jpg", alt: "Evento 8" },
         { src: "assets/event9.jpg", alt: "Evento 9" },
         { src: "assets/event10.jpg", alt: "Evento 10" },
-        { src: "assets/event11.jpg", alt: "Evento 11" },
-        { src: "assets/event12.jpg", alt: "Evento 12" },
-        { src: "assets/event13.jpg", alt: "Evento 13" },
         { src: "assets/event14.jpg", alt: "Evento 14" },
         { src: "assets/event15.jpg", alt: "Evento 15" }
     ]
@@ -140,44 +145,38 @@ const portfolioImages = {
 // Portfolio Rendering
 const portfolioGrid = document.querySelector('.portfolio-grid');
 const filterButtons = document.querySelectorAll('.filter-btn');
+let currentImages = [];
+let currentLightboxIndex = 0;
 
 function renderPortfolio(filter) {
     portfolioGrid.innerHTML = '';
     let images = [];
 
     if (filter === 'all') {
-        // Seleciona apenas as 5 primeiras imagens de cada categoria
         images = [
-            ...portfolioImages.portraits.slice(0, 5),
-            ...portfolioImages.weddings.slice(0, 5),
-            ...portfolioImages.events.slice(0, 5)
+            ...portfolioImages.portraits.slice(0, 3),
+            ...portfolioImages.pets.slice(0, 3),
+            ...portfolioImages.events.slice(0, 2)
         ];
     } else {
-        // Exibe todas as imagens da categoria selecionada
         images = portfolioImages[filter] || [];
     }
+
+    currentImages = images;
 
     images.forEach((image, index) => {
         const item = document.createElement('div');
         item.classList.add('portfolio-item');
-        item.setAttribute('data-category', filter === 'all' ? getCategory(image.src) : filter);
-        item.innerHTML = `<img src="${image.src}" alt="${image.alt}" loading="lazy">`;
+        item.dataset.index = index;
+        item.dataset.category = filter === 'all' ? getCategory(image.src) : filter;
+        item.innerHTML = `<img src="${image.src}" alt="${image.alt}" loading="lazy" decoding="async" width="400" height="250">`;
         portfolioGrid.appendChild(item);
-
-        anime({
-            targets: item,
-            opacity: [0, 1],
-            translateY: [20, 0],
-            duration: 600,
-            easing: 'easeOutQuad',
-            delay: index * 100
-        });
     });
 }
 
 function getCategory(src) {
     if (src.includes('portrait')) return 'portraits';
-    if (src.includes('wedding')) return 'weddings';
+    if (src.includes('pet')) return 'pets';
     if (src.includes('event')) return 'events';
     return '';
 }
@@ -198,30 +197,40 @@ renderPortfolio('all');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
 const closeLightbox = document.querySelector('.close-lightbox');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+const nextCard = lightbox.querySelector('.next-card');
+
+function updateLightbox() {
+    const image = currentImages[currentLightboxIndex];
+    lightboxImg.src = image.src;
+    lightboxImg.alt = image.alt;
+
+    const nextIndex = (currentLightboxIndex + 1) % currentImages.length;
+    nextCard.style.backgroundImage = `url(${currentImages[nextIndex].src})`;
+}
 
 portfolioGrid.addEventListener('click', (e) => {
-    const img = e.target.closest('img');
-    if (img) {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
+    const item = e.target.closest('.portfolio-item');
+    if (item) {
+        currentLightboxIndex = parseInt(item.dataset.index);
+        updateLightbox();
         lightbox.style.display = 'flex';
-        anime({
-            targets: lightbox,
-            opacity: [0, 1],
-            duration: 400,
-            easing: 'easeOutQuad'
-        });
     }
 });
 
 closeLightbox.addEventListener('click', () => {
-    anime({
-        targets: lightbox,
-        opacity: [1, 0],
-        duration: 400,
-        easing: 'easeInQuad',
-        complete: () => lightbox.style.display = 'none'
-    });
+    lightbox.style.display = 'none';
+});
+
+lightboxPrev.addEventListener('click', () => {
+    currentLightboxIndex = (currentLightboxIndex - 1 + currentImages.length) % currentImages.length;
+    updateLightbox();
+});
+
+lightboxNext.addEventListener('click', () => {
+    currentLightboxIndex = (currentLightboxIndex + 1) % currentImages.length;
+    updateLightbox();
 });
 
 // Smooth Scroll
@@ -231,12 +240,7 @@ document.querySelectorAll('a[data-target]').forEach(anchor => {
         const targetId = this.getAttribute('data-target');
         const target = document.getElementById(targetId);
         if (target) {
-            anime({
-                targets: 'html, body',
-                scrollTop: target.offsetTop,
-                duration: 1000,
-                easing: 'easeInOutQuad'
-            });
+            target.scrollIntoView({ behavior: 'smooth' });
         }
         if (window.innerWidth <= 768) navUl.classList.remove('active');
     });
@@ -311,12 +315,6 @@ openModalButtons.forEach(button => {
 
         modal.style.display = 'flex';
         modalTitle.textContent = title;
-        anime({
-            targets: modal,
-            opacity: [0, 1],
-            duration: 600,
-            easing: 'easeOutExpo'
-        });
         inputs.forEach(input => {
             if (input.id !== 'servico' && input.id !== 'package') input.value = '';
         });
@@ -324,13 +322,7 @@ openModalButtons.forEach(button => {
 });
 
 closeModal.addEventListener('click', () => {
-    anime({
-        targets: modal,
-        opacity: [1, 0],
-        duration: 600,
-        easing: 'easeInExpo',
-        complete: () => modal.style.display = 'none'
-    });
+    modal.style.display = 'none';
 });
 
 inputs.forEach(input => {
@@ -353,29 +345,9 @@ form.addEventListener('submit', (e) => {
     }).then(response => {
         if (response.ok) {
             notification.style.display = 'block';
-            anime({
-                targets: notification,
-                translateY: ['-100%', 0],
-                opacity: [0, 1],
-                duration: 800,
-                easing: 'easeOutExpo'
-            });
-            anime({
-                targets: modal,
-                opacity: [1, 0],
-                duration: 600,
-                easing: 'easeInExpo',
-                complete: () => modal.style.display = 'none'
-            });
+            modal.style.display = 'none';
             setTimeout(() => {
-                anime({
-                    targets: notification,
-                    translateY: [0, '-100%'],
-                    opacity: [1, 0],
-                    duration: 600,
-                    easing: 'easeInExpo',
-                    complete: () => notification.style.display = 'none'
-                });
+                notification.style.display = 'none';
             }, 3000);
         } else {
             alert('Erro ao enviar o formulário.');
@@ -387,14 +359,7 @@ form.addEventListener('submit', (e) => {
 });
 
 notification.querySelector('.close-notification').addEventListener('click', () => {
-    anime({
-        targets: notification,
-        translateY: [0, '-100%'],
-        opacity: [1, 0],
-        duration: 600,
-        easing: 'easeInExpo',
-        complete: () => notification.style.display = 'none'
-    });
+    notification.style.display = 'none';
 });
 
 // WhatsApp Button
@@ -404,24 +369,6 @@ function updateWhatsappBtn() {
     const rect = sobreSection.getBoundingClientRect();
     if (rect.top <= window.innerHeight && whatsappBtn.style.display !== 'block') {
         whatsappBtn.style.display = 'block';
-        anime({
-            targets: whatsappBtn,
-            scale: [0, 1],
-            opacity: [0, 1],
-            duration: 800,
-            easing: 'easeOutElastic',
-            complete: () => {
-                anime({
-                    targets: whatsappBtn,
-                    scale: [1, 1.1],
-                    opacity: 1,
-                    duration: 1000,
-                    easing: 'easeInOutQuad',
-                    loop: true,
-                    direction: 'alternate'
-                });
-            }
-        });
     }
 }
 
@@ -436,12 +383,7 @@ const nextButton = document.querySelector('.carousel-next');
 let currentIndex = 0;
 
 function updateCarousel() {
-    anime({
-        targets: carouselInner,
-        translateX: -currentIndex * 100 + '%',
-        duration: 800,
-        easing: 'easeInOutQuad'
-    });
+    carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
 function nextCarouselSlide() {

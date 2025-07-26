@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kássio Barros">
     <meta name="description"
-        content="Kássio Barros - Fotografia de elite para momentos inesquecíveis. Portfólio, serviços e agendamento online.">
-    <title>Kássio Barros - Fotografia Premium</title>
+        content="Matheus Pestana - Fotógrafo de elite para momentos inesquecíveis. Portfólio, serviços e agendamento online.">
+    <meta name="keywords" content="Fotógrafo profissional, fotografia de retratos, fotos de pets, fotografia de eventos, Matheus Pestana, sessões fotográficas, agendamento online">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.example.com"> <!-- Substitua pela URL real do site -->
+    <meta property="og:title" content="Matheus Pestana - Fotógrafo">
+    <meta property="og:description" content="Fotógrafo de elite para momentos inesquecíveis. Portfólio, serviços e agendamento online.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.example.com"> <!-- Substitua pela URL real -->
+    <meta property="og:image" content="assets/Matheus-retrato1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matheus Pestana - Fotógrafo ">
+    <meta name="twitter:description" content="Fotógrafo de elite para momentos inesquecíveis.">
+    <meta name="twitter:image" content="assets/Matheus-retrato1.jpg">
+    <title>Matheus Pestana - Fotógrafo </title>
     <link rel="shortcut icon" href="assets/favicon-camera.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,15 +29,30 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.12.0/tsparticles.bundle.min.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Matheus Pestana",
+      "jobTitle": "Fotógrafo Profissional",
+      "description": "Especialista em fotografia de retratos, pets e eventos com 1 ano de experiência.",
+      "url": "https://www.example.com",
+      "image": "assets/Matheus-retrato1.jpg",
+      "sameAs": [
+        "https://www.instagram.com/matpesttana"
+      ]
+    }
+    </script>
 </head>
 
 <body>
     <header>
         <nav class="container">
             <div class="logo">
-                <span>Kássio</span><span>Barros</span>
+                <span>Matheus</span><span>Pestana</span>
             </div>
             <ul>
                 <li><a href="#" data-target="sobre">Sobre</a></li>
@@ -39,10 +66,15 @@
     </header>
 
     <section id="hero">
+        <picture>
+            <source media="(min-width: 769px)" srcset="assets/pet16.jpg">
+            <source media="(max-width: 768px)" srcset="assets/Matheus-retrato1.jpg">
+            <img src="assets/pet16.jpg" alt="Imagem de fundo do herói" class="hero-image">
+        </picture>
         <div id="particles-js"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Kássio Barros</h1>
+                <h1 class="hero-title">Matheus Pestana</h1>
                 <p class="hero-subtitle">Transformando momentos em obras-primas.</p>
                 <a href="#" data-target="contato" class="hero-btn">Agende Sua Sessão</a>
             </div>
@@ -54,31 +86,33 @@
         <div class="container">
             <h2>Sobre o Fotógrafo</h2>
             <div class="sobre-content">
-                <img src="assets/photographer.jpg" alt="Kássio Barros" loading="lazy">
+                <img src="assets/Matheus-retrato1.jpg" alt="Matheus Pestana" loading="lazy">
                 <div>
-                    <p>Com mais de 10 anos de experiência, sou apaixonado por transformar instantes em memórias eternas.
+                    <p>Com 1 anos de experiência, sou apaixonado por transformar instantes em memórias eternas.
                         Minha abordagem combina técnica avançada, criatividade e um olhar único para capturar a essência
-                        de cada momento. Premiado internacionalmente, especializo-me em retratos, casamentos e
+                        de cada momento. Meu diferencial com fotografia é retratos, pets e
                         fotografia comercial, sempre com foco na excelência.</p>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="portfolio">
         <div class="container">
             <h2>Portfólio</h2>
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="portraits">Retratos</button>
-                <button class="filter-btn" data-filter="weddings">Casamentos</button>
+                <button class="filter-btn" data-filter="pets">Pets</button>
                 <button class="filter-btn" data-filter="events">Eventos</button>
             </div>
             <div class="portfolio-grid"></div>
         </div>
         <div class="lightbox" id="lightbox">
             <span class="close-lightbox">×</span>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
             <img src="" alt="Imagem Ampliada">
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="next-card"></div>
         </div>
     </section>
 
@@ -88,36 +122,36 @@
             <div class="servicos-grid">
                 <div class="servico-card">
                     <h3>Retratos</h3>
-                    <p>Sessões personalizadas para capturar sua essência. <br> A partir de 2 horas.</p>
+                    <p>Sessões personalizadas para capturar sua essência. <br> A partir de 5 fotografia.</p>
                     <label>Escolha Pacote:</label>
-                    <select class="session-select" data-base-price="150">
-                        <option value="2">Básico - 2 horas</option>
-                        <option value="4">Premium - 4 horas</option>
-                        <option value="6">Deluxe - 6 horas</option>
+                     <select class="session-select" data-base-price="100">
+                        <option value="1">Básico - 5 Fotos</option>
+                        <option value="2">Premium - 10 Fotos</option>
+                        <option value="3">Deluxe - 20 Fotos</option>
                     </select>
                     <span class="custom-price"></span>
                     <button class="servico-btn" data-servico="retratos">Agendar</button>
                 </div>
                 <div class="servico-card">
-                    <h3>Casamentos</h3>
-                    <p>Cobertura completa para o seu grande dia. <br> A partir de 6 horas.</p>
+                    <h3>Pet</h3>
+                    <p>Cobertura completa para o seu Pet. <br> A partir de 10 fotografia.</p>
                     <label>Escolha Pacote:</label>
-                    <select class="session-select" data-base-price="500">
-                        <option value="6">Básico - 6 horas</option>
-                        <option value="8">Premium - 8 horas</option>
-                        <option value="12">Deluxe - 12 horas</option>
+                    <select class="session-select" data-base-price="150">
+                        <option value="1">Básico - 10 Fotos</option>
+                        <option value="2">Premium - 20 Fotos</option>
+                        <option value="3">Deluxe - 30 Fotos</option>
                     </select>
                     <span class="custom-price"></span>
-                    <button class="servico-btn" data-servico="casamentos">Agendar</button>
+                    <button class="servico-btn" data-servico="pets">Agendar</button>
                 </div>
                 <div class="servico-card">
                     <h3>Eventos</h3>
-                    <p>Registro dinâmico de eventos corporativos ou sociais. <br> A partir de 4 horas.</p>
+                    <p>Registro dinâmico de eventos corporativos ou sociais. <br> A partir de 1 horas.</p>
                     <label>Escolha Pacote:</label>
                     <select class="session-select" data-base-price="300">
-                        <option value="4">Básico - 4 horas</option>
-                        <option value="6">Premium - 6 horas</option>
-                        <option value="8">Deluxe - 8 horas</option>
+                        <option value="1">Básico - 1 horas</option>
+                        <option value="2">Premium - 2 horas</option>
+                        <option value="3">Deluxe - 3 horas</option>
                     </select>
                     <span class="custom-price"></span>
                     <button class="servico-btn" data-servico="eventos">Agendar</button>
@@ -168,9 +202,9 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 Kássio Barros. Todos os direitos reservados.</p>
+            <p>© 2025 Matheus Pestana. Todos os direitos reservados.</p>
             <div class="social">
-                <a href="https://www.instagram.com/kassiobarros"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/matpesttana"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-pinterest"></i></a>
             </div>
@@ -178,7 +212,7 @@
     </footer>
 
     <div id="whatsapp-btn" class="whatsapp-btn">
-        <a href="https://wa.me/16996461059" target="_blank">
+        <a href="https://wa.me/16982173520" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
